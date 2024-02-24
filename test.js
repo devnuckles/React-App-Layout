@@ -1,30 +1,40 @@
-class Car {
-    constructor(make, model, year) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.milesDriven = 0;
+// Parent class
+class Animal {
+    constructor(name) {
+        this.name = name;
     }
 
-    drive(miles) {
-        this.milesDriven += miles;
-        console.log(
-            `You drove ${miles} miles. Total miles driven: ${this.milesDriven}`
-        );
-    }
-
-    displayInfo() {
-        console.log(`Car Info: ${this.year} ${this.make} ${this.model}`);
+    speak() {
+        console.log(`${this.name} makes a sound.`);
     }
 }
 
-// Create instances of the Car class
-const myCar = new Car("Toyota", "Camry", 2018);
-const friendCar = new Car("Honda", "Civic", 2020);
+//inheritance
+// Child class inheriting from Animal
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name); // Call the constructor of the parent class
+        this.breed = breed;
+    }
 
-// Use the methods of the Car class
-myCar.drive(100);
-myCar.displayInfo();
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
 
-friendCar.drive(200);
-friendCar.displayInfo();
+    displayInfo() {
+        console.log(`Name: ${this.name}, Breed: ${this.breed}`);
+    }
+}
+
+// Create an instance of the Dog class
+const myDog = new Dog("Buddy", "Golden Retriever");
+
+// Call methods of the Dog class
+myDog.speak(); // Output: Buddy barks.
+myDog.displayInfo(); // Output: Name: Buddy, Breed: Golden Retriever
+
+/*
+Engineering Principle 
+    > solid
+    > single responsibility principle 
+*/
